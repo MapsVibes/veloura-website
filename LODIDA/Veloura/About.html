@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Veloura</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;900&display=swap" rel="stylesheet">
+
+  <style>
+
+    :root{
+      --bg:#0c0c0c;
+      --card:#151515;
+      --text:#f4f4f4;
+      --muted:#bdbdbd;
+      --gold:#d4af37;
+      --gold2:#f5e6a6;
+      --line:#2a2a2a;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      background:var(--bg);
+      color:var(--text);
+      font-family:"Playfair Display", serif;
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      width:min(1200px,92%);
+      margin:auto;
+    }
+
+    /* =======================
+       NAVBAR
+    ======================= */
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+
+      backdrop-filter:blur(10px);
+
+      background:rgba(12,12,12,.75);
+
+      border-bottom:1px solid rgba(255,255,255,.05);
+    }
+
+    .navbar{
+      height:82px;
+
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+
+    .logo img{
+      width:52px;
+    }
+
+    .logo h1{
+      font-size:28px;
+      font-weight:900;
+
+      background:linear-gradient(
+      90deg,
+      var(--gold),
+      var(--gold2),
+      #ca8a04);
+
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .nav-btn{
+      padding:12px 20px;
+
+      border-radius:12px;
+
+      background:#fff;
+      color:#000;
+
+      font-family:system-ui;
+      font-size:14px;
+      font-weight:700;
+
+      transition:.3s;
+    }
+
+    .nav-btn:hover{
+      transform:translateY(-2px);
+    }
+
+    /* =======================
+       HERO
+    ======================= */
+
+    .hero{
+      padding:100px 0 70px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:60px;
+      align-items:center;
+    }
+
+    .hero h2{
+      font-size:78px;
+      line-height:1;
+      margin-bottom:24px;
+
+      background:linear-gradient(
+      90deg,
+      var(--gold),
+      var(--gold2),
+      #ca8a04);
+
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .hero p{
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.9;
+      font-family:system-ui;
+    }
+
+    .hero-image{
+      border-radius:28px;
+      overflow:hidden;
+
+      border:1px solid var(--line);
+
+      box-shadow:
+      0 20px 60px rgba(0,0,0,.45);
+    }
+
+    .hero-image img{
+      width:100%;
+      height:620px;
+      object-fit:cover;
+      display:block;
+    }
+
+    /* =======================
+       STORY SECTION
+    ======================= */
+
+    .section{
+      padding:90px 0;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .section-title h3{
+      font-size:52px;
+      margin-bottom:18px;
+    }
+
+    .section-title p{
+      color:var(--muted);
+      font-family:system-ui;
+      max-width:700px;
+      margin:auto;
+      line-height:1.8;
+    }
+
+    .story-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:28px;
+    }
+
+    .story-card{
+      background:var(--card);
+
+      border:1px solid var(--line);
+
+      border-radius:24px;
+
+      padding:34px;
+
+      transition:.35s;
+    }
+
+    .story-card:hover{
+      transform:translateY(-6px);
+      border-color:rgba(212,175,55,.4);
+    }
+
+    .story-card h4{
+      font-size:30px;
+      margin-bottom:16px;
+    }
+
+    .story-card p{
+      color:var(--muted);
+      line-height:1.9;
+      font-family:system-ui;
+    }
+
+    /* =======================
+       VALUES
+    ======================= */
+
+    .values{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:24px;
+      margin-top:40px;
+    }
+
+    .value-box{
+      padding:28px;
+      border-radius:22px;
+      background:#111;
+
+      border:1px solid var(--line);
+      text-align:center;
+    }
+
+    .value-box h5{
+      font-size:24px;
+      margin:18px 0 12px;
+    }
+
+    .value-box p{
+      color:var(--muted);
+      font-family:system-ui;
+      line-height:1.8;
+    }
+
+    .icon{
+      font-size:42px;
+    }
+
+    /* =======================
+       CTA
+    ======================= */
+
+    .cta{
+      margin-top:80px;
+
+      background:linear-gradient(
+      135deg,
+      rgba(212,175,55,.12),
+      rgba(255,255,255,.03));
+
+      border:1px solid rgba(212,175,55,.15);
+
+      padding:60px;
+
+      border-radius:30px;
+
+      text-align:center;
+    }
+
+    .cta h3{
+      font-size:54px;
+      margin-bottom:20px;
+    }
+
+    .cta p{
+      color:var(--muted);
+      line-height:1.9;
+      font-family:system-ui;
+
+      max-width:700px;
+      margin:auto;
+    }
+
+    .cta-buttons{
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      flex-wrap:wrap;
+
+      margin-top:34px;
+    }
+
+    .btn{
+      padding:15px 26px;
+
+      border-radius:14px;
+
+      font-family:system-ui;
+      font-size:15px;
+      font-weight:700;
+
+      transition:.3s;
+    }
+
+    .btn-primary{
+      background:#fff;
+      color:#000;
+    }
+
+    .btn-outline{
+      border:1px solid rgba(255,255,255,.15);
+      color:#fff;
+    }
+
+    .btn:hover{
+      transform:translateY(-3px);
+    }
+
+    /* =======================
+       FOOTER
+    ======================= */
+
+    footer{
+      padding:50px 0;
+      text-align:center;
+      border-top:1px solid rgba(255,255,255,.05);
+      margin-top:100px;
+    }
+
+    footer p{
+      color:#7d7d7d;
+      font-family:system-ui;
+    }
+
+    /* =======================
+       MOBILE
+    ======================= */
+
+    @media(max-width:950px){
+
+      .hero-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero h2{
+        font-size:56px;
+      }
+
+      .hero-image img{
+        height:500px;
+      }
+
+      .section-title h3{
+        font-size:40px;
+      }
+
+      .cta h3{
+        font-size:42px;
+      }
+    }
+
+    @media(max-width:600px){
+
+      .hero{
+        padding-top:70px;
+      }
+
+      .hero h2{
+        font-size:46px;
+      }
+
+      .hero-image img{
+        height:400px;
+      }
+
+      .cta{
+        padding:40px 24px;
+      }
+
+      .cta h3{
+        font-size:34px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- =======================
+       NAVBAR
+  ======================= -->
+
+  <header>
+
+    <div class="container navbar">
+
+      <div class="logo">
+
+        <img src="images/veloura-logo.png" alt="Veloura Logo">
+
+        <h1>Veloura</h1>
+
+      </div>
+
+      <a href="index.html" class="nav-btn">
+        Back Home
+      </a>
+
+    </div>
+
+  </header>
+
+  <!-- =======================
+       HERO
+  ======================= -->
+
+  <section class="hero">
+
+    <div class="container hero-grid">
+
+      <div>
+
+        <h2>
+          More Than Fashion.
+        </h2>
+
+        <p>
+          Veloura was created to blend luxury streetwear with
+          cultural storytelling. Inspired by Y2K aesthetics,
+          premium textures, and artistic heritage, every piece
+          is designed to make people stand out confidently.
+          <br><br>
+          We believe fashion should feel expressive, timeless,
+          and elevated — not just worn, but experienced.
+        </p>
+
+      </div>
+
+      <div class="hero-image">
+
+        <img src="images/hero1.jpg" alt="Veloura Fashion">
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =======================
+       STORY
+  ======================= -->
+
+  <section class="section">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h3>
+          The Veloura Vision
+        </h3>
+
+        <p>
+          A fusion of culture, luxury, and modern streetwear
+          crafted for a generation that wants to stand out.
+        </p>
+
+      </div>
+
+      <div class="story-grid">
+
+        <div class="story-card">
+
+          <h4>
+            Luxury Identity
+          </h4>
+
+          <p>
+            Veloura pieces are designed with premium aesthetics,
+            rich textures, and elegant detailing that bring
+            couture energy into everyday fashion.
+          </p>
+
+        </div>
+
+        <div class="story-card">
+
+          <h4>
+            Cultural Influence
+          </h4>
+
+          <p>
+            Inspired by heritage patterns, modern artistry,
+            and global street culture, every design carries
+            meaning beyond fashion trends.
+          </p>
+
+        </div>
+
+        <div class="story-card">
+
+          <h4>
+            Y2K Energy
+          </h4>
+
+          <p>
+            We bring nostalgic early-2000s silhouettes into
+            modern luxury streetwear with clean execution and
+            elevated styling.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =======================
+       VALUES
+  ======================= -->
+
+  <section class="section">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h3>
+          What Veloura Stands For
+        </h3>
+
+      </div>
+
+      <div class="values">
+
+        <div class="value-box">
+
+          <div class="icon">✦</div>
+
+          <h5>Confidence</h5>
+
+          <p>
+            Clothing designed to make every outfit feel powerful.
+          </p>
+
+        </div>
+
+        <div class="value-box">
+
+          <div class="icon">◆</div>
+
+          <h5>Creativity</h5>
+
+          <p>
+            Unique materials and expressive luxury concepts.
+          </p>
+
+        </div>
+
+        <div class="value-box">
+
+          <div class="icon">⬢</div>
+
+          <h5>Culture</h5>
+
+          <p>
+            Fashion influenced by artistry and global inspiration.
+          </p>
+
+        </div>
+
+        <div class="value-box">
+
+          <div class="icon">✧</div>
+
+          <h5>Luxury</h5>
+
+          <p>
+            Premium quality with elevated modern streetwear energy.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- CTA -->
+
+      <div class="cta">
+
+        <h3>
+          Wear The Culture
+        </h3>
+
+        <p>
+          Explore luxury-inspired fashion pieces crafted for
+          people who want more than ordinary streetwear.
+        </p>
+
+        <div class="cta-buttons">
+
+         <a href="index.html#contact" class="btn btn-primary">
+  Design with us today
+          </a>
+
+          <a href="materials.html" class="btn btn-outline">
+            View Materials
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =======================
+       FOOTER
+  ======================= -->
+
+  <footer>
+
+    <div class="container">
+
+      <p>
+        © 2026 Veloura — Luxury Y2K Streetwear
+      </p>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
